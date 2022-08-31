@@ -1,0 +1,26 @@
+<header class="navbar navbar-light" style="background-color: var(--nav)">
+  <div class="logo px-5">
+    <h1><a href="#">INSIGHT</a></h1>
+  </div>
+
+  {% if user.is_authenticated %}
+  <nav class="nav nav-masthead justify-content-end float-md-end px-5">
+    <a class="nav-link" href="{% url 'dashboard' %}">Dashbord</a>
+    <a class="nav-link" href="{% url 'list-data' %}">Record</a>
+        <a class="nav-link" href="{% url 'list-deviation' %}">Deviations</a>
+    <a class="nav-link" href="{% url 'create-data' %}">Add New Record</a>
+    
+
+    <a class="nav-link" href="#"> {{user.user_name}}</a>
+
+    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+  </nav>
+  {% else %}
+  <nav class="nav nav-masthead justify-content-end float-md-end px-5">
+    <a class="nav-link active" aria-current="page" href="#">Home</a>
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+    <a class="nav-link" href="{% url 'register' %}">Register</a>
+    <a class="nav-link" href="#">Contact</a>
+  </nav>
+  {% endif %}
+</header>

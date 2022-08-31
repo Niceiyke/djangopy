@@ -1,0 +1,75 @@
+{% extends 'base.html' %}{% block content %} {% include 'navbar.html' %}
+
+<div class="deviation">
+  <div class="row">
+    <div class="col-3 content-sidebar" style="width: 20%">
+      <h3>Filter</h3>
+      <hr />
+      {% include 'insight/deviation-filter.html' %}
+    </div>
+    <div class="col-6 content-table k-table" style="width: 65%">
+      <table>
+        <thead>
+          <tr>
+            <th>production date</th>
+            <th>Time</th>
+            <th>Line</th>
+            <th>Category</th>
+            <th>Equipment</th>
+            <th>Function Failure</th>
+            <th>Failure Mode</th>
+            <th>Failure Mode Desc</th>
+            <th>Duration</th>
+            <th>Frquency</th>
+            <th>Shift</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for deviation in deviations %}
+          <tr>
+            <td>{{deviation.insight.production_date.date}}</td>
+            <td>{{deviation.insight.production_date.time}}</td>
+            <td>{{deviation.insight.line}}</td>
+            <td>{{deviation.category}}</td>
+            <td>{{deviation.equipment}}</td>
+            <td>{{deviation.function_failure}}</td>
+            <td>{{deviation.failure_mode}}</td>
+            <td>{{deviation.failure_mode_description}}</td>
+            <td>{{deviation.duration}}</td>
+            <td>{{deviation.frequency}}</td>
+            <td>{{deviation.insight.shift_type}}</td>
+            <td>{{deviation.status}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3 content-sidebar" style="width: 15%">
+      <h3 style="color: --bs-gray-dark">Summary</h3>
+      <hr />
+      <div style="display: flex; flex-direction: column">
+        <label>Unplanned Downtime:</label>
+        <strong style="color: #222322">{{duration}} mins</strong>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <label>Breakdown</label>
+        <strong style="color: #222322">{{bdduration}} mins</strong>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <label>Minor Stops</label>
+        <strong style="color: #222322">{{msduration}} mins</strong>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <label>MTBF</label>
+        <strong style="color: #222322">{{mtbf}} mins</strong>
+      </div>
+      <div style="display: flex; flex-direction: column">
+        <label>MTBA</label>
+        <strong style="color: #222322">{{msduration}} mins</strong>
+      </div>
+    
+    </div>
+  </div>
+</div>
+{% endblock content %}

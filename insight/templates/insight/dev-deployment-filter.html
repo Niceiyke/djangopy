@@ -1,0 +1,22 @@
+<form action="" method="get">
+  {% csrf_token %}
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Line</label>
+    <select name="line" id="">
+      <option value="">Select Line</option>
+      {% for line in lines %}
+      <option value="{{line.id}}">{{line}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Start Date</label>
+    <input type="date" name="start-date" id="" />
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">End Date</label>
+    <input type="date" name="end-date" id="" />
+  </div>
+
+  <button type="submit" class="btn btn-primary mt-3">Search</button>
+</form>

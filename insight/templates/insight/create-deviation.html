@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %} 
+{% load crispy_forms_tags %}
+<div class="container mt-3 border " style="width:90%;font-size:14px">
+  <div class="row">
+    <div class="col-8 text-center mr-5 mt-3 border" >
+      <h4>Login deviation details</h4>
+    </div>
+    <div class="col-4 text-end mr-5 mt-3 ">
+    <h4> Total Downtime Duration: {{duration}} mins</h4>
+    </div>
+  </div>
+    <form action="" method="post" autocomplete="off">
+
+      {% csrf_token %} 
+
+      <div class="row mx-5 mt-5">
+        <div class="col-4">{{form.category|as_crispy_field}}</div>
+         <div class="col-4">{{form.equipment|as_crispy_field}}</div>
+           <div class="col-4">{{form.duration|as_crispy_field}}</div>
+
+      </div>
+       <div class="row mx-5">
+       
+          <div class="col-4">{{form.frequency|as_crispy_field}}</div>
+              <div class="col-4" >{{form.function_failure|as_crispy_field}}</div>
+          <div class="col-4">{{form.failure_mode|as_crispy_field}}</div>
+
+       </div>
+
+         <div class="row mx-5">
+         <div class="col-12">{{form.failure_mode_description|as_crispy_field}}</div>
+  
+ 
+       </div>
+  
+      <button type="submit" class="btn btn-primary mt-3 mx-5" style="width: 90%;">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

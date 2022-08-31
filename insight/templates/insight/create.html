@@ -1,0 +1,37 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %} 
+{% load crispy_forms_tags %}
+<div class="container mt-3 border " style="width:90%;font-size:14px">
+  <div class="data-header"><h3>
+    Insight Data input
+  </h3></div>
+    <form action="" method="post" autocomplete="off">
+      {% csrf_token %} 
+      <div class="row mx-5">
+        <div class="col-3">{{form.area|as_crispy_field}}</div>
+         <div class="col-3">{{form.line|as_crispy_field}}</div>
+          <div class="col-3">{{form.line_speed|as_crispy_field}}</div>
+           <div class="col-3">{{form.shift_type|as_crispy_field}}</div>
+      </div>
+       <div class="row mx-5">
+         <div class="col-4">{{form.line_manager|as_crispy_field}}</div>
+          <div class="col-4">{{form.team_leader|as_crispy_field}}</div>
+           <div class="col-4">{{form.data_operator|as_crispy_field}}</div>
+       </div>
+        <div class="row mx-5">
+         <div class="col-4">{{form.time_period|as_crispy_field}}</div>
+          <div class="col-4">{{form.product_type|as_crispy_field}}</div>
+           <div class="col-4">{{form.production_team|as_crispy_field}}</div>
+       </div>
+         <div class="row mx-5">
+         <div class="col-4">{{form.last_counter_reading|as_crispy_field}}</div>
+          <div class="col-4">{{form.new_counter_reading|as_crispy_field}}</div>
+           <div class="col-4">{{form.bbt_no|as_crispy_field}}</div>
+       </div>
+ 
+       </div>
+  
+      <button type="submit" class="btn btn-primary mt-3 mx-5" style="width: 90%;">Submit</button>
+    </form>
+  </div>
+</div>
+{% endblock content %}

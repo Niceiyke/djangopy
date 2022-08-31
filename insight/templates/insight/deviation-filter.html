@@ -1,0 +1,66 @@
+<form action="" method="get">
+  {% csrf_token %}
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Line</label>
+    <select name="line" id="">
+      <option value="">Select Line</option>
+      {% for line in lines %}
+      <option value="{{line.id}}">{{line}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Category</label>
+    <select name="category" id="">
+      <option value="">Choose an category</option>
+      {% for category in categories %}
+      <option value="{{category.id}}">{{category}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Equipment</label>
+    <select name="equipment" id="">
+      <option value="">Choose an option</option>
+      {% for equipment in equipments %}
+      <option value="{{equipment.id}}">{{equipment}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Duration</label>
+    <input type="number" name="duration" id="" placeholder="Enter Duration" />
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Frequency</label>
+    <input type="number" name="frequency" id="" placeholder="Enter Frequency" />
+  </div>
+
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Start Date</label>
+    <input type="date" name="start-date" id="" />
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">End Date</label>
+    <input type="date" name="end-date" id="" />
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Function Failure</label>
+    <select name="function-failure" id="">
+      <option value="">Choose an option</option>
+      {% for function in functions %}
+      <option value="{{function.id}}">{{function}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="form-control1" style="display: flex; flex-direction: column">
+    <label for="">Failure Mode</label>
+    <select name="failure-mode" id="">
+      <option value="">Choose an option</option>
+      {% for failure in failures %}
+      <option value="{{failure.id}}">{{failure}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary mt-3">Search</button>
+</form>

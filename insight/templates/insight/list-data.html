@@ -1,0 +1,57 @@
+{% extends 'base.html' %} {% block content %} {% include 'navbar.html' %}
+
+
+<div class="kpi">
+  <div class="row">
+    <div class="col-2 content-sidebar">
+      <h3>Filter</h3>
+      <hr />
+    
+      {% include 'insight/perfomance-filter.html' %}
+    </div>
+    <div class="col-8 content-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Production Date</th>
+            <th>Period</th>
+            <th>Area</th>
+            <th>Line</th>
+            <th>Team Leader</th>
+            <th>Operator</th>
+            <th>Team</th>
+            <th>Product Type</th>
+            <th>Bottle Produced</th>
+            <th>Line Efficiency</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for data in datas %}
+          <tr>
+            <td>{{data.production_date}}</td>
+            <td>{{data.time_period}}</td>
+            <td>{{data.area}}</td>
+            <td>{{data.line}}</td>
+            <td>{{data.team_leader}}</td>
+            <td>{{data.data_operator}}</td>
+            <td>{{data.production_team}}</td>
+            <td>{{data.product_type}}</td>
+            <td>{{data.bottle_produced}}</td>
+            <td class="opi">{{data.line_output}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-2 content-sidebar">
+      <h3>Summary</h3>
+      <hr />
+      <h5>Category</h5>
+      <h5>Equipment</h5>
+      <h5>Failure Mode</h5>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
